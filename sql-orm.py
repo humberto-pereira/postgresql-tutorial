@@ -31,7 +31,7 @@ class Track(base):
     __tablename__ = "Track"
     TrackId = Column(Integer, primary_key=True)
     Name = Column(String)
-    AlbumID = Column(Integer, ForeignKey("Album.AlbumId"))
+    AlbumId = Column(Integer, ForeignKey("Album.AlbumId"))
     MediaTypeId = Column(Integer, primary_key=False)
     GenreId = Column(Integer, primary_key=False)
     Composer = Column(String)
@@ -75,7 +75,7 @@ base.metadata.create_all(db)
 
 # Query 6  - select all tracks where the composer is "Queen" from the 
 # "Track" table
-tracks = session.query(Track).filter_by(Composer="Queen")
+tracks = session.query(Track).filter_by(Composer = "Queen")
 for track in tracks:
     print(
         track.TrackId,
